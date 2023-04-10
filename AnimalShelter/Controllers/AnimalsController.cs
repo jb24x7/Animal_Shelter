@@ -19,13 +19,13 @@ namespace AnimalShelter.Controllers
 
     // GET api/pets
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Pet>>> Get(string title)
+    public async Task<ActionResult<IEnumerable<Pet>>> Get(string name)
     {
       IQueryable<Pet> query = _db.Pets.AsQueryable();
 
-      if (title != null)
+      if (name != null)
       {
-        query = query.Where(entry => entry.Title == title);
+        query = query.Where(entry => entry.Name == name);
       }
 
       return await query.ToListAsync();
@@ -76,9 +76,7 @@ public async Task<IActionResult> Put(int id, Pet pet)
         return BadRequest("User name does not match.");
     }
 
-    // Update only the title and description, not the user_name
-    existingPet.Title = pet.Title;
-    existingPet.Description = pet.Description;
+    existingPet.Name = pet.Name;
 
     try
     {

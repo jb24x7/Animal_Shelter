@@ -19,18 +19,13 @@ namespace AnimalShelter.Controllers
 
     // GET api/shelters
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Shelter>>> Get(string country, string city, string search)
+    public async Task<ActionResult<IEnumerable<Shelter>>> Get(string name, string search)
     {
       IQueryable<Shelter> query = _db.Shelters.Include(shelter => shelter.Pets).AsQueryable();
 
-      if (country != null)
+      if (name != null)
       {
-        query = query.Where(entry => entry.Country == country);
-      }
-
-      if (city != null)
-      {
-        query = query.Where(entry => entry.City == city);
+        query = query.Where(entry => entry.Name == name);
       }
 
       if (search == "random")
