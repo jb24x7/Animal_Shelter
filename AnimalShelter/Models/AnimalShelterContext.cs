@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using AnimalShelter.Models;
 
 namespace AnimalShelter.Models
 {
@@ -16,7 +15,6 @@ namespace AnimalShelter.Models
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       base.OnModelCreating(modelBuilder);
-      // Configure your model here
     }
   }
 }

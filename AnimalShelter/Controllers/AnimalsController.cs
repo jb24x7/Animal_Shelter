@@ -17,7 +17,6 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-    // GET api/pets
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Pet>>> Get(string name)
     {
@@ -31,7 +30,6 @@ namespace AnimalShelter.Controllers
       return await query.ToListAsync();
     }
 
-    // GET: api/Pets/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Pet>> GetPet(int id)
     {
@@ -45,7 +43,6 @@ namespace AnimalShelter.Controllers
       return pet;
     }
 
-    // POST api/pets
     [HttpPost]
     public async Task<ActionResult<Pet>> Post(Pet pet)
     {
@@ -55,7 +52,6 @@ namespace AnimalShelter.Controllers
     }
 
 
-    // PUT: api/Pets/5
     [HttpPut("{id}")]
 public async Task<IActionResult> Put(int id, Pet pet)
 {
@@ -102,7 +98,6 @@ private bool PetExists(int id)
     return _db.Pets.Any(e => e.PetId == id);
 }
 
-    // DELETE: api/Pets/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePet(int id)
     {
