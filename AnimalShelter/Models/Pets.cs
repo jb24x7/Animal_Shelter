@@ -12,7 +12,7 @@ namespace AnimalShelter.Models
     
     [StringLength(120)]
     public string Title { get; set; }
-    public string Description { get; set; }
+    public string Name { get; set; }
     [Required]
     public string user_name { get; set; }
   }
